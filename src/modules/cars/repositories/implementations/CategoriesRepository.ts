@@ -21,12 +21,13 @@ class CategoriesRepository implements ICategoriesRepository {
         await this.repository.save(category)
     }
 
-    async list(): Promise<Category[]> {
-        return await this.repository.find();
-    }
     async findByName(name: string): Promise<Category> {
         const cateory = await this.repository.findOne({name});
         return cateory;
+    }
+    
+    async list(): Promise<Category[]> {
+        return await this.repository.find();
     }
 }
 
