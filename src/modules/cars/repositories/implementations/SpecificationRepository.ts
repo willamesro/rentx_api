@@ -1,4 +1,4 @@
-import { Specification } from "../../model/Specifications";
+import { Specification } from "../../entities/Specifications";
 import {
     ISpecificationRepository,
     ICreateSpecificationDTO,
@@ -7,16 +7,10 @@ import {
 class SpecificationRepository implements ISpecificationRepository {
     private specifications: Specification[];
     // eslint-disable-next-line no-use-before-define
-    private static INSTACE: SpecificationRepository;
-    private constructor() {
+    constructor() {
         this.specifications = [];
     }
-    public static getInstace() {
-        if (!this.INSTACE) {
-            this.INSTACE = new SpecificationRepository();
-        }
-        return this.INSTACE;
-    }
+   
     create({ name, description }: ICreateSpecificationDTO): void {
         const specification = new Specification();
 
