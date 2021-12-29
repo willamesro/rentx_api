@@ -11,9 +11,6 @@ class User {
     name: string;
 
     @Column()
-    username: string;
-
-    @Column()
     password: string;
 
     @Column()
@@ -21,7 +18,7 @@ class User {
 
     @Column()
     driver_license: string;
-
+    
     @Column()
     admin: boolean;
 
