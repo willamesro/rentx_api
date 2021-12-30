@@ -8,10 +8,11 @@ class AuthUserController {
         const { email, password } = req.body
 
         const authUserUseCase = container.resolve(AuthUserUseCase)
+        
         const authInfo = await authUserUseCase.execute({
             email, password
         })
-
+        console.log(authInfo)
         return res.json(authInfo)
     }
 }
