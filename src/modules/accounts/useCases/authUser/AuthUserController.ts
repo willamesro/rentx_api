@@ -12,7 +12,6 @@ class AuthUserController {
         const authInfo = await authUserUseCase.execute({
             email, password
         })
-        console.log(authInfo)
         return res.json(authInfo)
     }
 }

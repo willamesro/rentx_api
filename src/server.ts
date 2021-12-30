@@ -3,13 +3,12 @@ import express, { NextFunction, Response, Request } from "express";
 import "express-async-errors";
 import swaggerUi from "swagger-ui-express";
 
+import "./database";
+import "./shared/container"
+
 import { AppError } from "./errors/AppError";
 import { routes } from "./routes/routes";
 import swaggerFile from "./swagger.json";
-
-import "./database";
-
-import "./shared/container"
 
 const app = express();
 
@@ -24,6 +23,7 @@ app.use((err:Error, req:Request, res:Response, next:NextFunction)=>{
             message:err.message
         })
     }
+    
     return res.status(500).json({
         status:"error",
         message:`Internal server error - ${err.message}`
