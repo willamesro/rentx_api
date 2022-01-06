@@ -19,11 +19,10 @@ class UpdateUserAvatarUseCase {
         const user = await this.userRepository.findById(user_id)
 
         if(user.avatar){
-            deleteFile(`./tmp/avatar/${user.avatar}`)
+           await deleteFile(`./tmp/avatar/${user.avatar}`)
         }
 
         user.avatar = avatar_file;
-        console.log(user);
         
         await this.userRepository.create(user)
 
